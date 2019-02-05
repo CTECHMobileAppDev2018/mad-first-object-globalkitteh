@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class StartGame {
   
@@ -76,8 +77,36 @@ public class StartGame {
     // Player creation completed
     //-----------------------------------------------------------------------------------------------------------
     
+    while (player1.getHealth() > 0 && player2.getHealth() > 0){
+      //Player 1's turn
+      Random plr1dmg = new Random();
+      int temp1dmg = plr1dmg.nextInt(10);
+      System.out.println(player1.getName() + ", it's your turn. You attack " + player2.getName() + " using " + weapon1.getName() + " for " + temp1dmg + " damage.");
+      player2.setHealth((player2.getHealth() -  temp1dmg));
+      System.out.println(player2.getName() + " has " + player2.getHealth() + " HP left.");
+      
+      if (player1.getHealth() == 0 || player2.getHealth() == 0){
+        break;
+      }
+      
+      //Player 2's turn
+      Random plr2dmg = new Random();
+      int temp2dmg = plr2dmg.nextInt(10);
+      System.out.println(player2.getName() + ", it's your turn. You attack " + player1.getName() + " using " + weapon2.getName() + " for " + temp2dmg + " damage.");
+      player1.setHealth((player1.getHealth() -  temp2dmg));
+      System.out.println(player1.getName() + " has " + player1.getHealth() + " HP left.");
+    }
     
-
+    //Somebody has won
+    
+    if (player1.getHealth() < player2.getHealth()) {
+      System.out.println("Good job, " + player2.getName() + ", you won!");
+    }
+    else if (player2.getHealth() < player1.getHealth()) {
+      System.out.println("Good job, " + player1.getName() + ", you won!");
+    }
+    else {
+      System.out.println("Well, this is awkward. I'm not sure who won.");
+    }
   }  
-  
 }

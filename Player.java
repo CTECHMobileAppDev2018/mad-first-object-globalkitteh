@@ -35,8 +35,9 @@ public class Player {
       System.out.println("Health value outside valid range");
       return;
     }
-    
+    else{
     this.health = playerHealth;
+    }
   }
   //returns player health
   public int getHealth(){
