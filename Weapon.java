@@ -1,24 +1,24 @@
 public class Weapon{
   
   private int wear;
-  private String color;
+  private String name;
   
   Weapon(){
     this.wear = 0;
   }
   
-  public void setColor(String wepColor){
-    if (wepColor.length() < 1){
+  public void setName(String wepName){
+    if (wepName.length() < 1){
       System.out.println("you forgot to type something.");
       return;
     }
     
-    this.color = wepColor;
+    this.name = wepName;
   }
   
   
-  public String getColor(){
-    return this.color;
+  public String getName(){
+    return this.name;
   }
   
 }

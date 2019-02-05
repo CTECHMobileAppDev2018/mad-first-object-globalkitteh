@@ -5,6 +5,7 @@ public class StartGame {
   public static void main(String[] args) {
    
     Player player1 = new Player();
+    Weapon weapon1 = new Weapon();
     
     Scanner plrScn = new Scanner(System.in); //playerName input scanner
     System.out.println("Enter player one's name");
@@ -27,9 +28,20 @@ public class StartGame {
     
     System.out.println(player1.getName() + "'s health is: " + player1.getHealth()); //prints health
     
+    //Player 1 weapon creation
+    
+    System.out.println("What would you like to name your weapon?");
+    Scanner wepName1 = new Scanner(System.in);
+    String wep1Name = wepName1.nextLine();
+    weapon1.setName(wep1Name);
+    
+    System.out.println("Your weapon is now named " + weapon1.getName());
+    System.out.println("Let's go!");
+    
     // Ready Player... 2?
     
     Player player2 = new Player();
+    Weapon weapon2 = new Weapon();
     
     Scanner plr2Scn = new Scanner(System.in); //playerName input scanner
     System.out.println("Enter player two's name");
@@ -52,11 +64,20 @@ public class StartGame {
     
     System.out.println(player2.getName() + "'s health is: " + player2.getHealth()); //prints health*/
     
+    //Player 2 weapon creation
+    
+    System.out.println("What would you like to name your weapon?");
+    Scanner wepName2 = new Scanner(System.in);
+    weapon2.setName(wepName2.nextLine());
+    
+    System.out.println("Your weapon is now named " + weapon2.getName());
+    System.out.println("Let's go!");
+    
     // Player creation completed
+    //-----------------------------------------------------------------------------------------------------------
     
     
-    
-    
+
   }  
   
 }
