@@ -32,8 +32,8 @@ public class Player {
   //Sets player health, limited to a 0-100 range
   public void setHealth(int playerHealth){
     if (playerHealth < 0 || playerHealth > 100){
-      System.out.println("Health value outside valid range");
-      return;
+      //System.out.println("d e d");
+      this.health = 0;
     }
     else{
     this.health = playerHealth;

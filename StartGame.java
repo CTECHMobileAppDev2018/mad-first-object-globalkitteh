@@ -76,16 +76,24 @@ public class StartGame {
     
     // Player creation completed
     //-----------------------------------------------------------------------------------------------------------
+    // Time to battle
     
-    while (player1.getHealth() > 0 && player2.getHealth() > 0){
+    while (player1.getHealth() != 0 && player2.getHealth() != 0){
       //Player 1's turn
       Random plr1dmg = new Random();
-      int temp1dmg = plr1dmg.nextInt(10);
+      int temp1dmg = plr1dmg.nextInt(10); // Damage generator
       System.out.println(player1.getName() + ", it's your turn. You attack " + player2.getName() + " using " + weapon1.getName() + " for " + temp1dmg + " damage.");
-      player2.setHealth((player2.getHealth() -  temp1dmg));
+      player2.setHealth((player2.getHealth() -  temp1dmg)); // Health calculator
+      if (player2.getHealth() == 0){
+        System.out.println(player2.getName() + " has died."); //Ending conditional
+      }
+      else{
       System.out.println(player2.getName() + " has " + player2.getHealth() + " HP left.");
+      }
       
-      if (player1.getHealth() == 0 || player2.getHealth() == 0){
+      //
+      
+      if (player1.getHealth() == 0 || player2.getHealth() == 0){ //interturn test for death
         break;
       }
       
@@ -93,16 +101,26 @@ public class StartGame {
       Random plr2dmg = new Random();
       int temp2dmg = plr2dmg.nextInt(10);
       System.out.println(player2.getName() + ", it's your turn. You attack " + player1.getName() + " using " + weapon2.getName() + " for " + temp2dmg + " damage.");
-      player1.setHealth((player1.getHealth() -  temp2dmg));
+      player1.setHealth((player1.getHealth() -  temp2dmg)); 
+      if (player1.getHealth() == 0){
+        System.out.println(player1.getName() + " has died.");
+      }
+      else{
       System.out.println(player1.getName() + " has " + player1.getHealth() + " HP left.");
+      }
+      
+      //
+      
     }
     
     //Somebody has won
     
     if (player1.getHealth() < player2.getHealth()) {
+      System.out.println("---------------------------------------------");
       System.out.println("Good job, " + player2.getName() + ", you won!");
     }
     else if (player2.getHealth() < player1.getHealth()) {
+      System.out.println("---------------------------------------------");
       System.out.println("Good job, " + player1.getName() + ", you won!");
     }
     else {
