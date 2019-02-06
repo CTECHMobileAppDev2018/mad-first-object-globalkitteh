@@ -42,5 +42,8 @@ public class Player {
   //returns player health
   public int getHealth(){
     return this.health;
-  }  
+  }
+  public void attack(){
+    
+  }
 }
